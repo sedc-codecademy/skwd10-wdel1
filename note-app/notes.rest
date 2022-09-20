@@ -1,3 +1,6 @@
+
+### Extension name: REST Client
+
 ### Get all notes
 
 GET http://localhost:3000/notes
