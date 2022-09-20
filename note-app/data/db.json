@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "title": "First post",
+    "body": "Lorem ipsum random",
+    "id": "56275a66-d90b-4378-a75a-bc21ec96de75"
+  },
+  {
+    "title": "Third post",
+    "body": "Updated placeholder text",
+    "id": "b45d2ab8-2544-48a3-bab4-4ec17ce251ef"
+  },
+  {
+    "title": "Forth post",
+    "body": "Updated placeholder text",
+    "id": "4ddfb44d-202b-4cb3-b178-63994137d810"
+  }
+]
