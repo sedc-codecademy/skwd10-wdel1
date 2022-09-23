@@ -2,7 +2,7 @@
 
 # Lecture documentation & useful links ✨
 
-Download link for installing node.js can be found [here](https://nodejs.org/en/download/)
+Download link for installing node.js can be found [here](https://nodejs.org/en/download/)\
 Instructions for downloading and installing node.js [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 )
 
@@ -20,7 +20,7 @@ Instructions for downloading and installing node.js [here](https://docs.npmjs.co
 
 ## Importing and exporting modules in node.js
 ### Importing modules
-Documentation [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+Documentation [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)\
 *Always add the extensions at the end of the name of the file when importing them
 ### Exporting modules
 Documentation [link](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export)
@@ -41,7 +41,6 @@ To use nodemon, replace the word node on the command line when executing your sc
 ```
 nodemon [your node app]
 ```
-
 
 ## Dependencies vs DevDependencies
 "dependencies": Packages required by your application in production.\
@@ -69,3 +68,16 @@ Follow the instructions on https://www.jetbrains.com/lp/mono/\
 Go to Preferences/Settings → Editor → Font and change the following properties:\
 "editor.fontFamily": "JetBrains Mono"\
 "editor.fontLigatures": true (to use the fancy ligatures :) )
+
+## MongoDb
+Register on the following [website](https://www.mongodb.com/)\
+Documentation on creating a mongoDb cluster can be found [here](https://www.mongodb.com/basics/clusters/mongodb-cluster-setup)\
+
+## Additional packages to install 
+- mongoose npm i mongoose
+- validator npm i validator
+- bycript npm i bycript
+
+## Useful links
+Useful [link](https://www.turing.com/kb/building-middleware-for-node-js) for middlewares\
+Another useful [link](http://expressjs.com/en/guide/writing-middleware.html) for middlewares\
