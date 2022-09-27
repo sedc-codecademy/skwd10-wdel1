@@ -2,31 +2,29 @@ import { PostsService } from "../services/posts.service.js";
 
 export class PostsController {
   // 1. Get all posts
-  static async getAllPosts(req, res) {
+  static async getAllPosts(req, res, next) {
     try {
       const posts = await PostsService.getAllPosts();
 
       return res.status(200).send(posts);
     } catch (error) {
-      res.status(500).send(error);
+      next(error);
     }
   }
   // 2. Get post by id
-  static async getPostById(req, res) {
+  static async getPostById(req, res, next) {
     try {
       const postId = req.params.id;
 
       const post = await PostsService.getPostById(postId);
 
-      console.log(post);
-
       res.send(post);
     } catch (error) {
-      res.status(404).send(error);
+      next(error);
     }
   }
   // 3. Create post
-  static async createPost(req, res) {
+  static async createPost(req, res, next) {
     try {
       const postData = req.body;
 
@@ -34,11 +32,11 @@ export class PostsController {
 
       res.status(201).send(createdPost);
     } catch (error) {
-      res.status(400).send(error);
+      next(error);
     }
   }
   // 4. Update post
-  static async updatePost(req, res) {
+  static async updatePost(req, res, next) {
     try {
       const postId = req.params.id;
       const updateData = req.body;
@@ -47,11 +45,11 @@ export class PostsController {
 
       res.status(200).send(updatedPost);
     } catch (error) {
-      res.status(400).send(error);
+      next(error);
     }
   }
   // 5. Delete post
-  static async deletePost(req, res) {
+  static async deletePost(req, res, next) {
     try {
       const postId = req.params.id;
 
@@ -59,7 +57,7 @@ export class PostsController {
 
       res.sendStatus(204);
     } catch (error) {
-      res.status(404).send(error);
+      next(error);
     }
   }
 }

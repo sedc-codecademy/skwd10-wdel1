@@ -1,3 +1,4 @@
+import { BadRequest, GeneralError, NotFound } from "../const/error.const.js";
 import { Post } from "../models/post.model.js";
 export class PostsService {
   // 1. Get all posts
@@ -7,7 +8,7 @@ export class PostsService {
 
       return posts;
     } catch (error) {
-      throw error;
+      throw new GeneralError(`Couldn't fetch posts, ERROR: ${error}`);
     }
   }
   // 2. Get post by id
@@ -19,7 +20,7 @@ export class PostsService {
 
       return foundPost;
     } catch (error) {
-      throw error;
+      throw new NotFound(`Couldn't fetch post, ERROR: ${error}`);
     }
   }
   // 3. Create post
@@ -31,7 +32,7 @@ export class PostsService {
 
       return createdPost;
     } catch (error) {
-      throw error;
+      throw new BadRequest(`Couldn't create post, ERROR: ${error}`);
     }
   }
   //4. Update post
@@ -48,7 +49,7 @@ export class PostsService {
 
       return updatedPost;
     } catch (error) {
-      throw error;
+      throw new BadRequest(`Couldn't update post, ERROR: ${error}`);
     }
   }
   // Delete Post
@@ -58,7 +59,7 @@ export class PostsService {
 
       if (!deletedPost) throw "Post not found!";
     } catch (error) {
-      throw error;
+      throw new NotFound(`Couldn't delete post, ERROR: ${error}`);
     }
   }
 }
