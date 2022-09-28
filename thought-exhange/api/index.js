@@ -1,11 +1,11 @@
+import { config } from "dotenv";
+config();
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { config } from "dotenv";
 import { globalRouter } from "./const/router.const.js";
 import mongoose from "mongoose";
-
-config();
+import { errorHandler } from "./middlewares/error.middleware.js";
 
 const { MONGO_USER, MONGO_PASSWORD, MONGO_CLUSTER, MONGO_DB_NAME } =
   process.env;
@@ -19,6 +19,8 @@ app.use(helmet());
 app.use(express.json());
 
 app.use(globalRouter);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || "0.0.0.0"; //localhost

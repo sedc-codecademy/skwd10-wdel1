@@ -23,7 +23,6 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 8,
-    maxlength: 30,
   },
   posts: [
     {
@@ -35,6 +34,11 @@ const userSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: "Comment",
+    },
+  ],
+  refreshTokens: [
+    {
+      type: String,
     },
   ],
 });
@@ -66,6 +70,15 @@ userSchema.post("save", (error, _doc, next) => {
   }
 
   return next();
+});
+
+userSchema.set("toJSON", {
+  transform: function (_doc, ret, _opt) {
+    delete ret.password;
+    delete ret.__v;
+
+    return ret;
+  },
 });
 
 // Always needs to be the last line
