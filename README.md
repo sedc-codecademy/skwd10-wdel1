@@ -78,6 +78,23 @@ Documentation on creating a mongoDb cluster can be found [here](https://www.mong
 - validator npm i validator
 - bycript npm i bycript
 
-## Useful links
+## Useful links for middlewares
 Useful [link](https://www.turing.com/kb/building-middleware-for-node-js) for middlewares\
-Another useful [link](http://expressjs.com/en/guide/writing-middleware.html) for middlewares\
+Another useful [link](http://expressjs.com/en/guide/writing-middleware.html) for middlewares
+
+## Authentication and authorization with JWT Tokens
+When building a web application, authentication is one of the important aspects, and we usually implement authentication using JWT tokens (You can learn more about JWT [here](https://www.geeksforgeeks.org/?p=545169\
+We create an **access token** and store it in the local storage or session or cookie. But there is a more secure way to implement this using Refresh Tokens.\
+
+**Refresh Token:** It is a unique token that is used to obtain additional access tokens. This allows you to have short-lived access tokens without having to collect credentials every time one expires.\
+
+Since access tokens aren’t valid for an extended period because of security reasons, a refresh token helps to re-authenticate a user without login credentials. This Refresh token is never exposed to the client-side Javascript, even if our access token gets compromised it’ll be expired in a very short duration. So, we will be sending two tokens instead of one, an access token and a refresh token. The access token will contain all the user information and will be stored in Javascript runtime, but the refresh token will be stored securely in an HTTP-only cookie. \
+
+![Simple refresh token flow](https://i.ytimg.com/vi/yadjfgDBSiM/maxresdefault.jpg)\
+
+## Useful links for access and refresh tokens
+[npmjs documentation])(https://www.npmjs.com/package/jsonwebtoken)\
+[jwt official documentation](https://jwt.io/introduction)\
+[Access and refresh tokens simply explained](https://www.loginradius.com/blog/identity/refresh-tokens-jwt-interaction/)\
+Extra link for [JS Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#practical_closures)\
+
