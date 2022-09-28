@@ -1,4 +1,4 @@
-# skwd10-wdel1\
+# skwd10-wdel1
 
 # Lecture documentation & useful links ✨
 
@@ -61,7 +61,6 @@ To define an NPM script, set its name and write the script under the ‘scripts�
 ```
 To execute your Script, use the ‘npm run <NAME-OF-YOUR-SCRIPT>’ command. Some predefined aliases convert to npm run, like npm test or npm start, you can use them interchangeably. 
 
-
 ## Installing the JetBrains mono font
 
 Follow the instructions on https://www.jetbrains.com/lp/mono/\
@@ -73,10 +72,18 @@ Go to Preferences/Settings → Editor → Font and change the following properti
 Register on the following [website](https://www.mongodb.com/)\
 Documentation on creating a mongoDb cluster can be found [here](https://www.mongodb.com/basics/clusters/mongodb-cluster-setup)\
 
-## Additional packages to install 
-- mongoose npm i mongoose
-- validator npm i validator
-- bycript npm i bycript
+## Middlewares
+Express.js is a routing and Middleware framework for handling the different routing of the webpage and it works between the request and response cycle.\ 
+Middleware gets executed after the server receives the request and before the controller actions send the response. It has the access to the request object, responses object, and next, it can process the request before the server send a response. An Express-based application is a series of middleware function calls.\
+**Middleware Chaining:** Middleware can be chained from one to another, Hence creating a chain of functions that are executed in order. The last function sends the response back to the browser. So, before sending the response back to the browser the different middleware process the request.\
+**Advantages of using middleware:**
+- Middleware can process request objects multiple times before the server works for that request.
+- Middleware can be used to add logging and authentication functionality.
+- Middleware improves client-side rendering performance.
+- Middleware is used for setting some specific HTTP headers.
+- Middleware helps for Optimization and better performance.\
+
+![Middleware flow](https://www.tutorialspoint.com/expressjs/images/middleware_desc.jpg)
 
 ## Useful links for middlewares
 Useful [link](https://www.turing.com/kb/building-middleware-for-node-js) for middlewares\
@@ -90,11 +97,11 @@ We create an **access token** and store it in the local storage or session or co
 
 Since access tokens aren’t valid for an extended period because of security reasons, a refresh token helps to re-authenticate a user without login credentials. This Refresh token is never exposed to the client-side Javascript, even if our access token gets compromised it’ll be expired in a very short duration. So, we will be sending two tokens instead of one, an access token and a refresh token. The access token will contain all the user information and will be stored in Javascript runtime, but the refresh token will be stored securely in an HTTP-only cookie. \
 
-![Simple refresh token flow](https://i.ytimg.com/vi/yadjfgDBSiM/maxresdefault.jpg)\
+![Simple refresh token flow](https://i.ytimg.com/vi/yadjfgDBSiM/maxresdefault.jpg)
 
 ## Useful links for access and refresh tokens
-[npmjs documentation])(https://www.npmjs.com/package/jsonwebtoken)\
+[npmjs documentation](https://www.npmjs.com/package/jsonwebtoken)\
 [jwt official documentation](https://jwt.io/introduction)\
 [Access and refresh tokens simply explained](https://www.loginradius.com/blog/identity/refresh-tokens-jwt-interaction/)\
-Extra link for [JS Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#practical_closures)\
+Extra link for [JS Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#practical_closures)
 
