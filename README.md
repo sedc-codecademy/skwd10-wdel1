@@ -123,11 +123,11 @@ Angular is designed to make updating as straightforward as possible, so take adv
 To start working with Angular you need to install Angular CLI.
 
 The Angular CLI is the fastest, straightforward, and recommended way to develop Angular applications. The Angular CLI makes a number of tasks trouble-free. Here are some examples:
-- ng build	Compiles an Angular app into an output directory.
-- ng serve	Builds and serves your application, rebuilding on file changes.
-- ng generate	Generates or modifies files based on a schematic.
-- ng test	Runs unit tests on a given project.
-- ng e2e	Builds and serves an Angular application, then runs end-to-end tests.
+- ng build - Compiles an Angular app into an output directory.
+- ng serve	- Builds and serves your application, rebuilding on file changes.
+- ng generate	- Generates or modifies files based on a schematic.
+- ng test	- Runs unit tests on a given project.
+- ng e2e	- Builds and serves an Angular application, then runs end-to-end tests.
 
 *Please note that it is very important to install Angular CLI globally, which means that you will be able to use it in any Angular project and there is no need for re-installation in each Angular project.\
 *Additionally, if you use Visual Studio Code as a code editor, you may install the Angular language service extesnion, as it is very handy and helpful when developing Angular applications.
