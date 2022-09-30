@@ -16,12 +16,12 @@ Instructions for downloading and installing node.js [here](https://docs.npmjs.co
 - npm start - Runs a command that is defined in the start property in the scripts. If not defined it will run the node server.js command.
 - npm build - This command is used to build a package.
 - npm help - This command searches npm help documentation for a specified topic. It is used whenever the user needs help to get some reference.
-- touch - This command creates a file(ex. touch index.js will create a file index.js in the current folder)
+- touch - This command creates a file(ex. touch index.js will create a file index.js in the current folder).
 
 ## Importing and exporting modules in node.js
 ### Importing modules
 Documentation [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)\
-*Always add the extensions at the end of the name of the file when importing them
+*Always add the extensions at the end of the name of the file when importing them.
 ### Exporting modules
 Documentation [link](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export)
 
@@ -37,6 +37,7 @@ npm install --save-dev nodemon # or using yarn: yarn add nodemon -D
 
 With a local installation, nodemon will not be available in your system path or you can't use it directly from the command line.\Instead, the local installation of nodemon can be run by calling it from within an npm script (such as npm start) or using npx nodemon.
 *nodemon wraps your application, so you can pass all the arguments you would normally pass to your app.\
+
 To use nodemon, replace the word node on the command line when executing your script: 
 ```
 nodemon [your node app]
@@ -45,12 +46,12 @@ nodemon [your node app]
 ## Dependencies vs DevDependencies
 "dependencies": Packages required by your application in production.\
 "devDependencies": Packages that are only needed for local development and testing.\
-*You can check all the installed packages and dependencies in the package.json file
+*You can check all the installed packages and dependencies in the package.json file.
 
 ## package.json scripts
 An npm script is a convenient way to bundle common shell commands like a set of built-in and custom scripts for your project. They are typically terminal commands or a string of terminal commands that help automate repetitive tasks.\
 In short, NPM scripts are terminal commands that perform a set of actions.\
-In a project, scripts are stored in a section of the package.json file, which means they are shared amongst everyone using the codebase, ensuring that everyone is using the same command with similar flags.\
+In a project, scripts are stored in a section of the package.json file, which means they are shared amongst everyone using the codebase, ensuring that everyone is using the same command with similar flags.
 
 To define an NPM script, set its name and write the script under the ‘scripts’ property of your package.json file:
 ```
@@ -70,11 +71,10 @@ Go to Preferences/Settings → Editor → Font and change the following properti
 
 ## MongoDb
 Register on the following [website](https://www.mongodb.com/)\
-Documentation on creating a mongoDb cluster can be found [here](https://www.mongodb.com/basics/clusters/mongodb-cluster-setup)\
+Documentation on creating a mongoDb cluster can be found [here](https://www.mongodb.com/basics/clusters/mongodb-cluster-setup)
 
 ## Middlewares
-Express.js is a routing and Middleware framework for handling the different routing of the webpage and it works between the request and response cycle.\ 
-Middleware gets executed after the server receives the request and before the controller actions send the response. It has the access to the request object, responses object, and next, it can process the request before the server send a response. An Express-based application is a series of middleware function calls.\
+Express.js is a routing and Middleware framework for handling the different routing of the webpage and it works between the request and response cycle. Middleware gets executed after the server receives the request and before the controller actions send the response. It has the access to the request object, responses object, and next, it can process the request before the server send a response. An Express-based application is a series of middleware function calls.\
 **Middleware Chaining:** Middleware can be chained from one to another, Hence creating a chain of functions that are executed in order. The last function sends the response back to the browser. So, before sending the response back to the browser the different middleware process the request.\
 **Advantages of using middleware:**
 - Middleware can process request objects multiple times before the server works for that request.
@@ -86,16 +86,16 @@ Middleware gets executed after the server receives the request and before the co
 ![Middleware flow](https://www.tutorialspoint.com/expressjs/images/middleware_desc.jpg)
 
 ## Useful links for middlewares
-Useful [link](https://www.turing.com/kb/building-middleware-for-node-js) for middlewares\
-Another useful [link](http://expressjs.com/en/guide/writing-middleware.html) for middlewares
+Useful [link](https://www.turing.com/kb/building-middleware-for-node-js) for middlewares.\
+Another useful [link](http://expressjs.com/en/guide/writing-middleware.html) for middlewares.
 
 ## Authentication and authorization with JWT Tokens
 When building a web application, authentication is one of the important aspects, and we usually implement authentication using JWT tokens (You can learn more about JWT [here](https://www.geeksforgeeks.org/?p=545169\
-We create an **access token** and store it in the local storage or session or cookie. But there is a more secure way to implement this using Refresh Tokens.\
+We create an **access token** and store it in the local storage or session or cookie. But there is a more secure way to implement this using Refresh Tokens.
 
-**Refresh Token:** It is a unique token that is used to obtain additional access tokens. This allows you to have short-lived access tokens without having to collect credentials every time one expires.\
+**Refresh Token:** It is a unique token that is used to obtain additional access tokens. This allows you to have short-lived access tokens without having to collect credentials every time one expires.
 
-Since access tokens aren’t valid for an extended period because of security reasons, a refresh token helps to re-authenticate a user without login credentials. This Refresh token is never exposed to the client-side Javascript, even if our access token gets compromised it’ll be expired in a very short duration. So, we will be sending two tokens instead of one, an access token and a refresh token. The access token will contain all the user information and will be stored in Javascript runtime, but the refresh token will be stored securely in an HTTP-only cookie. \
+Since access tokens aren’t valid for an extended period because of security reasons, a refresh token helps to re-authenticate a user without login credentials. This Refresh token is never exposed to the client-side Javascript, even if our access token gets compromised it’ll be expired in a very short duration. So, we will be sending two tokens instead of one, an access token and a refresh token. The access token will contain all the user information and will be stored in Javascript runtime, but the refresh token will be stored securely in an HTTP-only cookie. 
 
 ![Simple refresh token flow](https://i.ytimg.com/vi/yadjfgDBSiM/maxresdefault.jpg)
 
@@ -103,7 +103,7 @@ Since access tokens aren’t valid for an extended period because of security re
 [npmjs documentation](https://www.npmjs.com/package/jsonwebtoken)\
 [jwt official documentation](https://jwt.io/introduction)\
 [Access and refresh tokens simply explained](https://www.loginradius.com/blog/identity/refresh-tokens-jwt-interaction/)\
-Extra link for [JS Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#practical_closures)
+[Extra link for JS Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#practical_closures)
 
 ## Angular
 Angular is an open-source, JavaScript framework and platform supported and developed by Google, that is used to build enterprise Single-page Web Applications (or SPAs).\
@@ -116,17 +116,18 @@ As a development platform, Angular includes:
 - A component-based framework for building scalable web applications
 - A collection of well-integrated libraries that cover a wide variety of features, including routing, forms management, client-server communication, and more
 - A suite of developer tools to help you develop, build, test, and update your code
-- With Angular, you're taking advantage of a platform that can scale from single-developer projects to enterprise-level applications.\
-Angular is designed to make updating as straightforward as possible, so take advantage of the latest developments with a minimum of effort. Best of all, the Angular ecosystem consists of a diverse group of over 1.7 million developers, library authors, and content creators.\
+- With Angular, you're taking advantage of a platform that can scale from single-developer projects to enterprise-level applications.
 
-To start working with Angular you need to install Angular CLI.\
+Angular is designed to make updating as straightforward as possible, so take advantage of the latest developments with a minimum of effort. Best of all, the Angular ecosystem consists of a diverse group of over 1.7 million developers, library authors, and content creators.
+
+To start working with Angular you need to install Angular CLI.
 
 The Angular CLI is the fastest, straightforward, and recommended way to develop Angular applications. The Angular CLI makes a number of tasks trouble-free. Here are some examples:
 - ng build	Compiles an Angular app into an output directory.
 - ng serve	Builds and serves your application, rebuilding on file changes.
 - ng generate	Generates or modifies files based on a schematic.
 - ng test	Runs unit tests on a given project.
-- ng e2e	Builds and serves an Angular application, then runs end-to-end tests.\
+- ng e2e	Builds and serves an Angular application, then runs end-to-end tests.
 
 *Please note that it is very important to install Angular CLI globally, which means that you will be able to use it in any Angular project and there is no need for re-installation in each Angular project.\
 *Additionally, if you use Visual Studio Code as a code editor, you may install the Angular language service extesnion, as it is very handy and helpful when developing Angular applications.
