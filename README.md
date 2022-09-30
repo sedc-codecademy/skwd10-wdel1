@@ -105,3 +105,28 @@ Since access tokens aren’t valid for an extended period because of security re
 [Access and refresh tokens simply explained](https://www.loginradius.com/blog/identity/refresh-tokens-jwt-interaction/)\
 Extra link for [JS Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#practical_closures)
 
+## Angular
+Angular is an open-source, JavaScript framework and platform supported and developed by Google, that is used to build enterprise Single-page Web Applications (or SPAs).\
+Angular is written in TypeScript. It implements core and optional functionality as a set of TypeScript libraries that you import into your apps.\
+As a framework, Angular has clear advantages while also providing a standard structure for developers to work with. It enables users to create large applications in a maintainable manner.\
+Angular is an opinionated framework which means that it specifies a certain style and certain rules that developers need to follow and adhere to while developing apps with Angular.\
+[Angular official documantation](https://angular.io/)
+
+As a development platform, Angular includes:
+- A component-based framework for building scalable web applications
+- A collection of well-integrated libraries that cover a wide variety of features, including routing, forms management, client-server communication, and more
+- A suite of developer tools to help you develop, build, test, and update your code
+- With Angular, you're taking advantage of a platform that can scale from single-developer projects to enterprise-level applications.\
+Angular is designed to make updating as straightforward as possible, so take advantage of the latest developments with a minimum of effort. Best of all, the Angular ecosystem consists of a diverse group of over 1.7 million developers, library authors, and content creators.\
+
+To start working with Angular you need to install Angular CLI.\
+
+The Angular CLI is the fastest, straightforward, and recommended way to develop Angular applications. The Angular CLI makes a number of tasks trouble-free. Here are some examples:
+- ng build	Compiles an Angular app into an output directory.
+- ng serve	Builds and serves your application, rebuilding on file changes.
+- ng generate	Generates or modifies files based on a schematic.
+- ng test	Runs unit tests on a given project.
+- ng e2e	Builds and serves an Angular application, then runs end-to-end tests.\
+
+*Please note that it is very important to install Angular CLI globally, which means that you will be able to use it in any Angular project and there is no need for re-installation in each Angular project.\
+*Additionally, if you use Visual Studio Code as a code editor, you may install the Angular language service extesnion, as it is very handy and helpful when developing Angular applications.
