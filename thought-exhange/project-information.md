@@ -11,7 +11,7 @@
     username: string;
     comments: commentId[];
     posts: postId[]
-    refreshToken: string
+    refreshTokens: string[]
 }
 ```
 
