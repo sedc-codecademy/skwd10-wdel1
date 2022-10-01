@@ -1,6 +1,5 @@
-<h1>{{ className }}</h1>
-<h2>{{ title }}</h2>
-<h1>This is from the app component</h1>
-<h2>This is a subheading</h2>
-<p>{{ classObj.numberOfClasses }}</p>
-<p>{{ classObj.numberOfStudents }}</p>
+<app-header></app-header>
+<main>
+  <!-- !NEVER FORGET ROUTER OUTLER BECAUSE THERE IS NO ERROR HANDLING -->
+  <router-outlet></router-outlet>
+</main>
