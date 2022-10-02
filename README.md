@@ -131,3 +131,15 @@ The Angular CLI is the fastest, straightforward, and recommended way to develop 
 
 *Please note that it is very important to install Angular CLI globally, which means that you will be able to use it in any Angular project and there is no need for re-installation in each Angular project.\
 *Additionally, if you use Visual Studio Code as a code editor, you may install the Angular language service extesnion, as it is very handy and helpful when developing Angular applications.
+
+
+## Lazy Loading in Angular
+By default, NgModules are eagerly loaded, which means that as soon as the application loads, so do all the NgModules, whether or not they are immediately necessary.\ For large applications with lots of routes, consider lazy loading —a design pattern that loads NgModules as needed. Lazy loading helps keep initial bundle sizes smaller, which in turn helps decrease load times.
+
+Lazy loading is the process of loading components, modules, or other assets of a website as they're required.\
+By default, as Angular creates a SPA (Single Pagge Application), NgModules are eagerly loaded, which means that as soon as the application loads, so do all the NgModules, whether or not they are immediately necessary.\
+For a small application this would be okay. But as the application grows the load time will increase if everything is loaded at once. Lazy loading allows Angular to load components and modules as and when they're needed.
+
+[Lazy loading documentation](https://angular.io/guide/lazy-loading-ngmodules)
+[Step-by-step guide](https://enlear.academy/how-to-implement-lazy-loading-in-angular-c3f445a2f379)
+
