@@ -1,0 +1,33 @@
+<header>
+  <div class="header-brand" routerLink="/">
+    <i class="fa-solid fa-right-left"></i>
+    <h1>TxEx</h1>
+  </div>
+  <div>
+    <nav class="nav">
+      <div
+        routerLink="/"
+        [routerLinkActive]="activeClass"
+        [routerLinkActiveOptions]="{
+          exact: true
+        }"
+        class="nav-link"
+      >
+        Home
+      </div>
+      <div routerLink="/posts" routerLinkActive="active" class="nav-link">
+        Posts
+      </div>
+      <div routerLink="/auth/login" routerLinkActive="active" class="nav-link">
+        Login
+      </div>
+      <div
+        routerLink="/auth/register"
+        routerLinkActive="active"
+        class="nav-link"
+      >
+        Register
+      </div>
+    </nav>
+  </div>
+</header>

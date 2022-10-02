@@ -14,6 +14,7 @@ export class PostsController {
   // 2. Get post by id
   static async getPostById(req, res, next) {
     try {
+      const user = req.user;
       const postId = req.params.id;
 
       const post = await PostsService.getPostById(postId);
@@ -26,9 +27,11 @@ export class PostsController {
   // 3. Create post
   static async createPost(req, res, next) {
     try {
+      const user = req.user;
+
       const postData = req.body;
 
-      const createdPost = await PostsService.createPost(postData);
+      const createdPost = await PostsService.createPost(user, postData);
 
       res.status(201).send(createdPost);
     } catch (error) {
@@ -38,12 +41,14 @@ export class PostsController {
   // 4. Update post
   static async updatePost(req, res, next) {
     try {
+      const user = req.user;
+
       const postId = req.params.id;
       const updateData = req.body;
 
-      const updatedPost = await PostsService.updatePost(postId, updateData);
+      await PostsService.updatePost(user, postId, updateData);
 
-      res.status(200).send(updatedPost);
+      res.status(204);
     } catch (error) {
       next(error);
     }
@@ -51,11 +56,37 @@ export class PostsController {
   // 5. Delete post
   static async deletePost(req, res, next) {
     try {
+      const user = req.user;
+
       const postId = req.params.id;
 
-      await PostsService.deletePost(postId);
+      await PostsService.deletePost(user, postId);
 
       res.sendStatus(204);
+    } catch (error) {
+      next(error);
+    }
+  }
+  // 6. Like Post
+  static async likePost(req, res, next) {
+    try {
+      const postId = req.params.id;
+
+      const likeCount = await PostsService.likePost(postId);
+
+      res.status(200).send(likeCount);
+    } catch (error) {
+      next(error);
+    }
+  }
+  // 7. Dislike Post
+  static async dislikePost(req, res, next) {
+    try {
+      const postId = req.params.id;
+
+      const dislikeCount = await PostsService.dislikePost(postId);
+
+      res.status(200).send(dislikeCount);
     } catch (error) {
       next(error);
     }

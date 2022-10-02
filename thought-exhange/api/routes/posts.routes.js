@@ -10,6 +10,10 @@ postsRouter.get("/:id", PostsController.getPostById);
 // 3. Create post
 postsRouter.post("/", PostsController.createPost);
 // 4. Update post
-postsRouter.put("/:id", PostsController.updatePost);
+postsRouter.patch("/:id", PostsController.updatePost);
 // 5. Delete post
 postsRouter.delete("/:id", PostsController.deletePost);
+// 6. Like Post
+postsRouter.patch("/:id/like", PostsController.likePost);
+// 7. Dislike Post
+postsRouter.patch("/:id/dislike", PostsController.dislikePost);
