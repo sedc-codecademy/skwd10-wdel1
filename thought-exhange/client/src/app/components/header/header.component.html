@@ -15,8 +15,23 @@
       >
         Home
       </div>
-      <div routerLink="/posts" routerLinkActive="active" class="nav-link">
+      <div
+        routerLink="/posts"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{
+          exact: true
+        }"
+        class="nav-link"
+      >
         Posts
+      </div>
+      <div
+        routerLink="/posts/create"
+        routerLinkActive="active"
+        class="nav-link"
+        title="Create Post"
+      >
+        Create Post
       </div>
       <div routerLink="/auth/login" routerLinkActive="active" class="nav-link">
         Login

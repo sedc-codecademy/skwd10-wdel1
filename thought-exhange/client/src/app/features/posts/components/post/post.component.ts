@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from 'src/app/interfaces/post.interface';
+import { Router } from '@angular/router';
+import { Post, SelectedPost } from 'src/app/interfaces/post.interface';
 
 @Component({
   selector: 'app-post',
@@ -7,10 +8,14 @@ import { Post } from 'src/app/interfaces/post.interface';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnInit {
-  @Input() post: Post;
+  @Input() post: Post | SelectedPost;
   @Input() isHoverShadow: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  onPostSelect() {
+    this.router.navigate(['posts', this.post._id]);
+  }
 }

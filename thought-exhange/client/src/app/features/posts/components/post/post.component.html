@@ -1,4 +1,8 @@
-<div class="post" [ngClass]="isHoverShadow ? 'post-hover' : ''">
+<div
+  class="post"
+  (click)="onPostSelect()"
+  [ngClass]="isHoverShadow ? 'post-hover' : ''"
+>
   <div class="post-heading">
     <h3>{{ post.title }}</h3>
     <span class="likes-display">

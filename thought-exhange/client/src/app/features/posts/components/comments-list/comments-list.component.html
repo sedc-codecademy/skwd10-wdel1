@@ -1,0 +1,20 @@
+<div class="comment-container">
+  <ng-container *ngIf="comments.length <= 0">
+    <h3>No Comments Yet</h3>
+  </ng-container>
+  <ng-container *ngIf="comments.length > 0">
+    <h3>Comments</h3>
+    <div class="comment" *ngFor="let comment of comments">
+      <p class="comment-body">{{ comment.body }}</p>
+      <p class="comment-author">
+        <span>
+          <i class="fa fa-user-circle"></i>
+          {{ comment.author.username }}
+        </span>
+        <span>
+          {{ comment.createdAt | date: "shortDate" }}
+        </span>
+      </p>
+    </div>
+  </ng-container>
+</div>
