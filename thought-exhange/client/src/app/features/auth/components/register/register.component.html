@@ -2,4 +2,47 @@
   <div class="container-heading">
     <h2>Register</h2>
   </div>
+  <form
+    class="form-container"
+    [formGroup]="registerForm"
+    (ngSubmit)="onFormSubmit()"
+  >
+    <div class="form-group">
+      <label for="register-username">Username</label>
+      <input
+        formControlName="username"
+        type="text"
+        class="form-control"
+        id="register-username"
+      />
+    </div>
+    <div class="form-group">
+      <label for="login-email">Email</label>
+      <input
+        formControlName="email"
+        type="text"
+        class="form-control"
+        id="login-email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="register-password">Password</label>
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control"
+        id="register-password"
+      />
+    </div>
+    <div class="form-group">
+      <label for="register-confirm-password">Confirm Password</label>
+      <input
+        formControlName="confirmPassword"
+        type="password"
+        class="form-control"
+        id="register-confirm-password"
+      />
+    </div>
+    <button type="submit">Register</button>
+  </form>
 </section>

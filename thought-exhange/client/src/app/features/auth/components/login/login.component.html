@@ -2,4 +2,29 @@
   <div class="container-heading">
     <h2>Login</h2>
   </div>
+  <form
+    class="form-container"
+    [formGroup]="loginForm"
+    (ngSubmit)="onFormSubmit()"
+  >
+    <div class="form-group">
+      <label for="login-email">Email</label>
+      <input
+        formControlName="email"
+        type="text"
+        class="form-control"
+        id="login-email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="login-password">Password</label>
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control"
+        id="login-password"
+      />
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
 </section>
