@@ -64,7 +64,8 @@ To execute your Script, use the ‘npm run <NAME-OF-YOUR-SCRIPT>’ command. Som
 
 ## Installing the JetBrains mono font
 
-Follow the instructions on https://www.jetbrains.com/lp/mono/\
+Follow the instructions on https://www.jetbrains.com/lp/mono/
+
 Go to Preferences/Settings → Editor → Font and change the following properties:\
 "editor.fontFamily": "JetBrains Mono"\
 "editor.fontLigatures": true (to use the fancy ligatures :) )
@@ -90,7 +91,7 @@ Useful [link](https://www.turing.com/kb/building-middleware-for-node-js) for mid
 Another useful [link](http://expressjs.com/en/guide/writing-middleware.html) for middlewares.
 
 ## Authentication and authorization with JWT Tokens
-When building a web application, authentication is one of the important aspects, and we usually implement authentication using JWT tokens (You can learn more about JWT [here](https://www.geeksforgeeks.org/?p=545169\
+When building a web application, authentication is one of the important aspects, and we usually implement authentication using JWT tokens. You can learn more about JWT [here](https://www.geeksforgeeks.org/?p=545169)\
 We create an **access token** and store it in the local storage or session or cookie. But there is a more secure way to implement this using Refresh Tokens.
 
 **Refresh Token:** It is a unique token that is used to obtain additional access tokens. This allows you to have short-lived access tokens without having to collect credentials every time one expires.
@@ -140,6 +141,26 @@ Lazy loading is the process of loading components, modules, or other assets of a
 By default, as Angular creates a SPA (Single Pagge Application), NgModules are eagerly loaded, which means that as soon as the application loads, so do all the NgModules, whether or not they are immediately necessary.\
 For a small application this would be okay. But as the application grows the load time will increase if everything is loaded at once. Lazy loading allows Angular to load components and modules as and when they're needed.
 
-[Lazy loading documentation](https://angular.io/guide/lazy-loading-ngmodules)
+[Lazy loading documentation](https://angular.io/guide/lazy-loading-ngmodules)\
 [Step-by-step guide](https://enlear.academy/how-to-implement-lazy-loading-in-angular-c3f445a2f379)
+
+## Angular forms
+Handling user input with forms is the cornerstone of many common applications. Applications use forms to enable users to log in, to update a profile, to enter sensitive information, and to perform many other data-entry tasks.\
+Angular provides two different approaches to [handling user input through forms](https://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/): reactive and template-driven. Both capture user input events from the view, validate the user input, create a form model and data model to update, and provide a way to track changes.
+
+Reactive forms provide direct, explicit access to the underlying form's object model. Compared to template-driven forms, they are more robust: they're more scalable, reusable, and testable. If forms are a key part of your application, or you're already using reactive patterns for building your application, use reactive forms.
+
+On the other side, template-driven forms Rely on directives in the template to create and manipulate the underlying object model. They are useful for adding a simple form to an app, such as an email list signup form. They're straightforward to add to an app, but they don't scale as well as reactive forms. If you have very basic form requirements and logic that can be managed solely in the template, template-driven forms could be a good fit.
+
+![Main differences between reactive and template-driven forms.](https://www.tutorialswebsite.com/wp-content/uploads/2020/12/angular-forms.png)
+
+Angular reactive forms follow a model-driven approach to handle form input whose values can be changed over time. These are also known as model-driven forms. In reactive forms, you can create and update a simple form control, use multiple controls in a group, validate form values, and implement more advanced forms.\
+Reactive forms use an explicit and immutable approach to manage the state of the form at a given point of time. When we change the form state, it returns a new state which manages the integrity of the models between changes. In reactive forms, you build your own representation of a form in the component class.\
+Reactive forms are easy to test because they assure consistent and predictable data when requested.
+
+You can read more about Angular reactive forms [here](https://angular.io/guide/reactive-forms).
+
+
+
+
 
