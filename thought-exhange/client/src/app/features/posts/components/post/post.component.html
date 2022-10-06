@@ -6,11 +6,11 @@
   <div class="post-heading">
     <h3>{{ post.title }}</h3>
     <span class="likes-display">
-      <span>
+      <span (click)="onPostLike($event)">
         <i class="fa-solid fa-thumbs-up"> </i>
         {{ post.likes }}
       </span>
-      <span>
+      <span (click)="onPostDislike($event)">
         <i class="fa-solid fa-thumbs-down"></i>
         {{ post.dislikes }}
       </span>

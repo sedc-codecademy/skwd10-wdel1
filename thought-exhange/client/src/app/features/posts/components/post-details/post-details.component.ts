@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectedPost } from 'src/app/interfaces/post.interface';
+import { ActivatedRoute } from '@angular/router';
+import { Post, SelectedPost } from 'src/app/interfaces/post.interface';
+import { PostsService } from 'src/app/services/posts.service';
 
 const postDetailsMockData = {
   _id: '6335bf489a29e461466bc548',
@@ -84,9 +86,17 @@ const postDetailsMockData = {
   styleUrls: ['./post-details.component.scss'],
 })
 export class PostDetailsComponent implements OnInit {
-  post: SelectedPost = postDetailsMockData;
+  constructor(
+    private route: ActivatedRoute,
+    private postsService: PostsService
+  ) {}
 
-  constructor() {}
+  get selectedPost$() {
+    return this.postsService.selectedPost$;
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const postId = this.route.snapshot.params.id;
+    this.postsService.getPostById(postId);
+  }
 }

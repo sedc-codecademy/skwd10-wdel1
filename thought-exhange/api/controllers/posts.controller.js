@@ -14,7 +14,6 @@ export class PostsController {
   // 2. Get post by id
   static async getPostById(req, res, next) {
     try {
-      const user = req.user;
       const postId = req.params.id;
 
       const post = await PostsService.getPostById(postId);

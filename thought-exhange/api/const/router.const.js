@@ -7,7 +7,7 @@ import { usersRouter } from "../routes/users.routes.js";
 
 export const globalRouter = Router();
 
-globalRouter.use("/posts", authValidator, postsRouter);
+globalRouter.use("/posts", postsRouter);
 globalRouter.use("/comments", authValidator, commentsRouter);
 globalRouter.use("/user", authValidator, usersRouter);
 globalRouter.use("/auth", authRouter);

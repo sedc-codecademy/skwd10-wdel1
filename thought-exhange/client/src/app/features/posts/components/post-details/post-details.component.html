@@ -2,7 +2,7 @@
   <div class="container-heading">
     <h2>Post Details</h2>
   </div>
-  <div class="posts-container">
+  <div *ngIf="selectedPost$ | async as post" class="posts-container">
     <!-- Post component -->
     <app-post [post]="post"></app-post>
     <!-- Comment form component -->
