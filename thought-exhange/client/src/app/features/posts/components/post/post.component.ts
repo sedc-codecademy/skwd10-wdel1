@@ -23,12 +23,12 @@ export class PostComponent implements OnInit {
   onPostLike(event: Event) {
     event.stopImmediatePropagation();
 
-    this.post.likes++;
+    this.postsService.likePost(this.post._id);
   }
 
   onPostDislike(event: Event) {
     event.stopImmediatePropagation();
 
-    this.post.dislikes++;
+    this.postsService.dislikePost(this.post._id);
   }
 }

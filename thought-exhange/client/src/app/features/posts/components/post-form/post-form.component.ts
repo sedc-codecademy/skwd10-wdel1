@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { PostsService } from 'src/app/services/posts.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post-form',
@@ -10,7 +12,7 @@ import { Location } from '@angular/common';
 export class PostFormComponent implements OnInit {
   postForm: FormGroup;
 
-  constructor(private location: Location) {}
+  constructor(private location: Location, private postsService: PostsService) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -27,9 +29,9 @@ export class PostFormComponent implements OnInit {
   }
 
   onFormSubmit() {
-    console.log(this.postForm.valid);
+    const { title, body } = this.postForm.value;
 
-    console.log(this.postForm.value);
+    this.postsService.createPost(title, body);
   }
 
   goBack() {

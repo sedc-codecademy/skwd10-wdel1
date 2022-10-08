@@ -7,9 +7,7 @@ export class AuthService {
     try {
       const user = new User(userData);
 
-      const createdUser = await user.save();
-
-      return createdUser;
+      await user.save();
     } catch (error) {
       throw error;
     }

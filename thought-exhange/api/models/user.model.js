@@ -76,6 +76,7 @@ userSchema.set("toJSON", {
   transform: function (_doc, ret, _opt) {
     delete ret.password;
     delete ret.__v;
+    delete ret.refreshTokens;
 
     return ret;
   },

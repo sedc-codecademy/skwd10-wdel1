@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggedInUser } from 'src/app/interfaces/user.interface';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit {
   activeClass = 'active';
 
-  currentUser: string | null = null;
+  currentUser: LoggedInUser | null = null;
 
   constructor(private authService: AuthService) {}
 

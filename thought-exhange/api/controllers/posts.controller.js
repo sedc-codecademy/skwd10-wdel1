@@ -32,7 +32,12 @@ export class PostsController {
 
       const createdPost = await PostsService.createPost(user, postData);
 
-      res.status(201).send(createdPost);
+      res
+        .status(201)
+        .send({
+          message: "Post Created Successfully",
+          postId: createdPost._id,
+        });
     } catch (error) {
       next(error);
     }

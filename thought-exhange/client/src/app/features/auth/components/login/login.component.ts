@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,7 +11,9 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {
+    if (this.authService.currentUser$.value) this.router.navigate(['posts']);
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -25,6 +28,9 @@ export class LoginComponent implements OnInit {
 
   onFormSubmit() {
     console.log(this.loginForm.value);
-    this.authService.loginUser(this.loginForm.value.email);
+
+    const { email, password } = this.loginForm.value;
+
+    this.authService.loginUser(email, password);
   }
 }

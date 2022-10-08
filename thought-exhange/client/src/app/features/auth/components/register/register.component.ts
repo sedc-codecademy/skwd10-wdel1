@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +12,9 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   isFormSubmitted = false;
 
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {
+    if (this.authService.currentUser$.value) this.router.navigate(['posts']);
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -54,8 +58,10 @@ export class RegisterComponent implements OnInit {
   onFormSubmit() {
     this.isFormSubmitted = true;
 
-    if (this.registerForm.valid) {
-      console.log('this is where we register user in backend');
-    }
+    if (this.registerForm.invalid) return;
+
+    const { username, email, password } = this.registerForm.value;
+
+    this.authService.registerUser({ username, email, password });
   }
 }

@@ -11,9 +11,9 @@ export class AuthController {
     try {
       const userData = req.body;
 
-      const user = await AuthService.registerUser(userData);
+      await AuthService.registerUser(userData);
 
-      res.status(201).send(user);
+      res.status(201).send({ message: "Account Created Successfully" });
     } catch (error) {
       res.status(400).send(error);
     }
