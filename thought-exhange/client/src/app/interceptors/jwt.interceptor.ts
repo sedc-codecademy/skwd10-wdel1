@@ -5,12 +5,16 @@ import {
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, EMPTY, Observable, switchMap } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { NotificationService } from '../services/notification.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private notificationService: NotificationService
+  ) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -32,6 +36,26 @@ export class JwtInterceptor implements HttpInterceptor {
       },
     });
 
-    return next.handle(clonedRequest);
+    return next.handle(clonedRequest).pipe(
+      catchError((err) => {
+        if (err.status === 403 && !err.url.includes('refresh-token')) {
+          return this.authService.refreshAccessToken().pipe(
+            switchMap((value) => {
+              const clonedRequest = request.clone({
+                setHeaders: {
+                  Authorization: `Bearer ${value.token}`,
+                },
+              });
+              return next.handle(clonedRequest);
+            })
+          );
+        }
+
+        this.authService.logoutUser();
+        this.notificationService.showError('Please Login To Continue');
+
+        return EMPTY;
+      })
+    );
   }
 }

@@ -9,6 +9,7 @@ import { CommentsListComponent } from './components/comments-list/comments-list.
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostFormComponent } from './components/post-form/post-form.component';
+import { UserCommentsComponent } from './components/user-comments/user-comments.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PostFormComponent } from './components/post-form/post-form.component';
     CommentsListComponent,
     CommentFormComponent,
     PostFormComponent,
+    UserCommentsComponent,
   ],
   imports: [CommonModule, PostsRoutingModule, ReactiveFormsModule],
 })

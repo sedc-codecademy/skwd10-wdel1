@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, map, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LoggedInUser } from '../interfaces/user.interface';
 import { NotificationService } from './notification.service';
@@ -12,6 +12,11 @@ export interface RegisterUserData {
   username: string;
   email: string;
   password: string;
+}
+
+export interface RefreshTokenResponse {
+  token: string;
+  newRefreshToken: string;
 }
 
 @Injectable({
@@ -58,6 +63,32 @@ export class AuthService {
           this.notificationService.showError(error.error.message);
         },
       });
+  }
+
+  refreshAccessToken() {
+    const refreshToken = this.currentUser$.value?.refreshToken;
+
+    return this.http
+      .post(`${API_URL}/auth/refresh-token`, { refreshToken })
+      .pipe(
+        map((value) => value as RefreshTokenResponse),
+        tap((value) => {
+          const user = this.currentUser$.value;
+
+          const { token, newRefreshToken: refreshToken } = value;
+
+          if (user) {
+            const updatedUser: LoggedInUser = {
+              ...user,
+              token,
+              refreshToken,
+            };
+
+            this.saveUserInLocalStorage(updatedUser);
+            this.currentUser$.next(updatedUser);
+          }
+        })
+      );
   }
 
   logoutUser() {

@@ -10,6 +10,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit {
   activeClass = 'active';
 
+  isDropdownOpen = false;
+
   currentUser: LoggedInUser | null = null;
 
   constructor(private authService: AuthService) {}
@@ -22,5 +24,10 @@ export class HeaderComponent implements OnInit {
 
   onLogout() {
     this.authService.logoutUser();
+    this.isDropdownOpen = false;
+  }
+
+  onDropdownToggle() {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 }

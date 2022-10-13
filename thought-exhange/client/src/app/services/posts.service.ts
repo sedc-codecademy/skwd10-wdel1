@@ -5,6 +5,7 @@ import { Post, SelectedPost } from '../interfaces/post.interface';
 import { environment } from 'src/environments/environment';
 import { NotificationService } from './notification.service';
 import { Router } from '@angular/router';
+import { PostComment } from '../interfaces/comment.interface';
 
 const { API_URL } = environment;
 
@@ -16,12 +17,19 @@ export class PostsService {
 
   selectedPost$ = new BehaviorSubject<SelectedPost | null>(null);
 
+  userComments$ = new BehaviorSubject<PostComment[]>([]);
+
+  postToEdit$ = new BehaviorSubject<Post | null>(null);
+
   constructor(
     private http: HttpClient,
     private notificationService: NotificationService,
     private router: Router
-  ) {
-    console.log(this.posts$.value);
+  ) {}
+
+  setPostToEdit(post: Post) {
+    this.postToEdit$.next(post);
+    this.router.navigate(['posts', 'edit']);
   }
 
   // 1.Get all posts
@@ -48,7 +56,10 @@ export class PostsService {
         next: (post) => {
           this.selectedPost$.next(post);
         },
-        error: (err) => this.notificationService.showError(err.error.message),
+        error: (err) => {
+          this.notificationService.showError(err.error.message);
+          this.router.navigate(['not-found']);
+        },
       });
   }
 
@@ -152,5 +163,58 @@ export class PostsService {
         },
         error: (err) => this.notificationService.showError(err.error.message),
       });
+  }
+
+  // 7. Get posts by user
+  getPostsByUser() {
+    this.http
+      .get(`${API_URL}/user/posts`)
+      .pipe(map((value) => value as Post[]))
+      .subscribe({
+        next: (posts) => this.posts$.next(posts),
+        error: (err) => this.notificationService.showError(err.error.message),
+      });
+  }
+
+  // 8. Get comments by user
+  getCommentsByUser() {
+    this.http
+      .get(`${API_URL}/user/comments`)
+      .pipe(map((value) => value as PostComment[]))
+      .subscribe({
+        next: (comments) => this.userComments$.next(comments),
+        error: (err) => this.notificationService.showError(err.error.message),
+      });
+  }
+
+  // 9. Update Post
+  updatePost(postId: string, title: string, body: string) {
+    this.http.patch(`${API_URL}/posts/${postId}`, { title, body }).subscribe({
+      next: () => {
+        this.notificationService.showSuccess('Post Updated Succesffully!');
+        this.router.navigate(['posts', postId]);
+        this.postToEdit$.next(null);
+      },
+      error: (err) => this.notificationService.showError(err.error.message),
+    });
+  }
+
+  // 10. Delete post
+  deletePost(postId: string) {
+    this.http.delete(`${API_URL}/posts/${postId}`).subscribe({
+      next: () => {
+        this.notificationService.showSuccess('Post Deleted Successfully!');
+
+        const updatedPosts = this.posts$.value.filter(
+          (post) => post._id !== postId
+        );
+
+        this.posts$.next(updatedPosts);
+
+        // If you need to ping the api after a deletion
+        // this.getPostsByUser()
+      },
+      error: (err) => this.notificationService.showError(err.error.message),
+    });
   }
 }

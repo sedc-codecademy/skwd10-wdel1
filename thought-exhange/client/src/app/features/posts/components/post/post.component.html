@@ -25,6 +25,14 @@
       <span>{{ post.createdAt | date }}</span>
     </span>
     <div class="comments">
+      <ng-container *ngIf="isEditAllowed">
+        <span (click)="onPostEdit($event)" class="edit-link"
+          >Edit <i class="fa-solid fa-pen-to-square"></i
+        ></span>
+        <span (click)="onPostDelete($event)" class="delete-link">
+          Delete <i class="fa-solid fa-trash-can"></i>
+        </span>
+      </ng-container>
       <span>Comments: {{ post.comments.length }}</span>
     </div>
   </div>

@@ -30,6 +30,7 @@ main {
   align-items: center;
 
   &-heading {
+    color: white;
     text-align: center;
     margin-top: 0;
 
@@ -44,6 +45,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  // align-items: center;
   width: 70%;
 }
 

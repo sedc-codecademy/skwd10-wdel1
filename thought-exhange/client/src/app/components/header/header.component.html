@@ -34,7 +34,24 @@
         >
           Create Post
         </div>
-        <div class="nav-link" (click)="onLogout()">Logout</div>
+        <div class="user-badge" (click)="onDropdownToggle()">
+          {{ currentUser.username[0] | uppercase }}
+        </div>
+        <div
+          class="dropdown"
+          *ngIf="isDropdownOpen"
+          (click)="onDropdownToggle()"
+        >
+          <div class="username dropdown-item">
+            <i class="fa fa-user"> </i>
+            {{ currentUser.username }}
+          </div>
+          <div class="dropdown-item" routerLink="/posts/user">My Posts</div>
+          <div class="dropdown-item" routerLink="/posts/user/comments">
+            My Comments
+          </div>
+          <div class="dropdown-item" (click)="onLogout()">Logout</div>
+        </div>
       </ng-container>
       <ng-container *ngIf="!currentUser">
         <div

@@ -1,6 +1,6 @@
 <section [formGroup]="postForm" (ngSubmit)="onFormSubmit()" class="container">
   <div class="container-heading">
-    <h2>Create Post</h2>
+    <h2>{{ postToEdit ? "Edit" : "Create" }} Post</h2>
   </div>
   <form class="form-container">
     <div class="form-group">
@@ -25,7 +25,9 @@
     </div>
     <div class="controls">
       <button type="button" (click)="goBack()">Back</button>
-      <button type="submit" [disabled]="postForm.invalid">Add</button>
+      <button type="submit" [disabled]="postForm.invalid">
+        {{ postToEdit ? "Update" : "Add" }}
+      </button>
     </div>
   </form>
 </section>
