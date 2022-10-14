@@ -63,7 +63,6 @@ To define an NPM script, set its name and write the script under the ‘scripts�
 To execute your Script, use the ‘npm run <NAME-OF-YOUR-SCRIPT>’ command. Some predefined aliases convert to npm run, like npm test or npm start, you can use them interchangeably. 
 
 ## Installing the JetBrains mono font
-
 Follow the instructions on https://www.jetbrains.com/lp/mono/
 
 Go to Preferences/Settings → Editor → Font and change the following properties:\
@@ -73,6 +72,10 @@ Go to Preferences/Settings → Editor → Font and change the following properti
 ## MongoDb
 Register on the following [website](https://www.mongodb.com/)\
 Documentation on creating a mongoDb cluster can be found [here](https://www.mongodb.com/basics/clusters/mongodb-cluster-setup)
+
+## Handling HTTP Requests in Node.js
+[Documentation](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/)\
+[More examples on this topic](https://www.section.io/engineering-education/http-requests-nodejs/)
 
 ## Middlewares
 Express.js is a routing and Middleware framework for handling the different routing of the webpage and it works between the request and response cycle. Middleware gets executed after the server receives the request and before the controller actions send the response. It has the access to the request object, responses object, and next, it can process the request before the server send a response. An Express-based application is a series of middleware function calls.\
@@ -159,6 +162,24 @@ Reactive forms use an explicit and immutable approach to manage the state of the
 Reactive forms are easy to test because they assure consistent and predictable data when requested.
 
 You can read more about Angular reactive forms [here](https://angular.io/guide/reactive-forms).
+
+## Interceptors
+Often we want to enforce, or apply, behavior when receiving or sending HTTP requests.\
+Interceptors are a unique type of Angular Service that we can implement to do exactly that.\
+Interceptors allow us to “intercept” incoming (or outgoing) HTTP requests using the HttpClient.
+
+By intercepting an HTTP request, we can modify or change the value of the request.\
+The angular interceptor is a medium connecting the backend and front-end applications. Whenever a request is made, the interceptors handle it in between. They can also identify the response by performing Rxjs operators.\
+The interceptors do not initiate the handle method and handle the requests at their level. The interceptor is used to perform various functions and methods to perform specific tasks.
+
+More specifically, the JWT Interceptor intercepts HTTP requests from the application to add a JWT auth token to the HTTP Authorization header if the user is logged in and the request is to the Angular app's API URL (environment.apiUrl).\
+It's implemented using the HttpInterceptor interface included in the HttpClientModule, by implementing the HttpInterceptor interface you can create a custom interceptor to modify http requests before they get sent to the server.
+
+## Additional links and documentation for Angular:
+[Angular University](https://angular-university.io/)\
+[Angular Begginer Course](https://www.youtube.com/watch?v=fnH573xJ2Eo)\
+[Useful angular topics](https://dev.to/angular)
+
 
 
 
