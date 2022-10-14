@@ -6,10 +6,7 @@ import { PostComment } from 'src/app/interfaces/comment.interface';
   templateUrl: './comments-list.component.html',
   styleUrls: ['./comments-list.component.scss'],
 })
-export class CommentsListComponent implements OnInit {
+export class CommentsListComponent {
   @Input() comments: PostComment[] = [];
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  @Input() showPostLink: boolean = false;
 }

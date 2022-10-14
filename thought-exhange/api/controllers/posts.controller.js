@@ -14,7 +14,6 @@ export class PostsController {
   // 2. Get post by id
   static async getPostById(req, res, next) {
     try {
-      const user = req.user;
       const postId = req.params.id;
 
       const post = await PostsService.getPostById(postId);
@@ -33,7 +32,10 @@ export class PostsController {
 
       const createdPost = await PostsService.createPost(user, postData);
 
-      res.status(201).send(createdPost);
+      res.status(201).send({
+        message: "Post Created Successfully",
+        postId: createdPost._id,
+      });
     } catch (error) {
       next(error);
     }
@@ -48,7 +50,7 @@ export class PostsController {
 
       await PostsService.updatePost(user, postId, updateData);
 
-      res.status(204);
+      res.sendStatus(204);
     } catch (error) {
       next(error);
     }

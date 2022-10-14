@@ -6,17 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  movieName: string;
-  isReady: boolean;
-  numberOfStudents: number = 30;
-  isNull: null = null;
-  isAny: any = 'test string';
-  fruitArr: string[] = ['apples', 'oranges'];
-  title = 'client';
-  className = 'Advanced JS';
-
-  classObj = {
-    numberOfStudents: 30,
-    numberOfClasses: 30,
-  };
+  // movieName: string;
+  // isReady: boolean;
+  // numberOfStudents: number = 30;
+  // isNull: null = null;
+  // isAny: any = 'test string';
+  // fruitArr: string[] = ['apples', 'oranges'];
+  // title = 'client';
+  // className = 'Advanced JS';
+  // classObj = {
+  //   numberOfStudents: 30,
+  //   numberOfClasses: 30,
+  // };
 }

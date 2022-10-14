@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -8,8 +10,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  isFormSubmitted = false;
 
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {
+    if (this.authService.currentUser$.value) this.router.navigate(['posts']);
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -26,6 +31,7 @@ export class RegisterComponent implements OnInit {
         password: new FormControl('', [
           Validators.required,
           Validators.minLength(8),
+          Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
         ]),
         confirmPassword: new FormControl('', [
           Validators.required,
@@ -49,5 +55,13 @@ export class RegisterComponent implements OnInit {
     }
   };
 
-  onFormSubmit() {}
+  onFormSubmit() {
+    this.isFormSubmitted = true;
+
+    if (this.registerForm.invalid) return;
+
+    const { username, email, password } = this.registerForm.value;
+
+    this.authService.registerUser({ username, email, password });
+  }
 }

@@ -22,7 +22,12 @@ export class CommentsController {
         commentData
       );
 
-      res.status(201).send(createdComment);
+      res
+        .status(201)
+        .send({
+          message: "Commend Added Successfully",
+          postId: createdComment.post,
+        });
     } catch (error) {
       next(error);
     }

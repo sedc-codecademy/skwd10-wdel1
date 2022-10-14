@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-comment-form',
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class CommentFormComponent implements OnInit {
   commentForm: FormGroup;
 
-  constructor() {}
+  constructor(private postsService: PostsService) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -22,6 +23,7 @@ export class CommentFormComponent implements OnInit {
   }
 
   onFormSubmit() {
-    console.log(this.commentForm.value);
+    this.postsService.createComment(this.commentForm.value.body);
+    this.commentForm.reset();
   }
 }

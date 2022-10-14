@@ -15,34 +15,60 @@
       >
         Home
       </div>
-      <div
-        routerLink="/posts"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{
-          exact: true
-        }"
-        class="nav-link"
-      >
-        Posts
-      </div>
-      <div
-        routerLink="/posts/create"
-        routerLinkActive="active"
-        class="nav-link"
-        title="Create Post"
-      >
-        Create Post
-      </div>
-      <div routerLink="/auth/login" routerLinkActive="active" class="nav-link">
-        Login
-      </div>
-      <div
-        routerLink="/auth/register"
-        routerLinkActive="active"
-        class="nav-link"
-      >
-        Register
-      </div>
+      <ng-container *ngIf="currentUser">
+        <div
+          routerLink="/posts"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{
+            exact: true
+          }"
+          class="nav-link"
+        >
+          Posts
+        </div>
+        <div
+          routerLink="/posts/create"
+          routerLinkActive="active"
+          class="nav-link"
+          title="Create Post"
+        >
+          Create Post
+        </div>
+        <div class="user-badge" (click)="onDropdownToggle()">
+          {{ currentUser.username[0] | uppercase }}
+        </div>
+        <div
+          class="dropdown"
+          *ngIf="isDropdownOpen"
+          (click)="onDropdownToggle()"
+        >
+          <div class="username dropdown-item">
+            <i class="fa fa-user"> </i>
+            {{ currentUser.username }}
+          </div>
+          <div class="dropdown-item" routerLink="/posts/user">My Posts</div>
+          <div class="dropdown-item" routerLink="/posts/user/comments">
+            My Comments
+          </div>
+          <div class="dropdown-item" (click)="onLogout()">Logout</div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!currentUser">
+        <div
+          routerLink="/auth/login"
+          routerLinkActive="active"
+          class="nav-link"
+        >
+          Login
+        </div>
+        <div
+          routerLink="/auth/register"
+          routerLinkActive="active"
+          class="nav-link"
+        >
+          Register
+        </div>
+      </ng-container>
     </nav>
   </div>
 </header>

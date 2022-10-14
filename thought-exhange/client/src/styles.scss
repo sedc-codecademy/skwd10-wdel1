@@ -30,6 +30,7 @@ main {
   align-items: center;
 
   &-heading {
+    color: white;
     text-align: center;
     margin-top: 0;
 
@@ -44,5 +45,111 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  // align-items: center;
   width: 70%;
+}
+
+.form-container {
+  width: 450px;
+  border-radius: 10px;
+  padding: 30px 40px;
+  background-color: var.$dark-blue;
+  color: black;
+  box-shadow: var.$box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .form-group {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 30px;
+
+    label {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: white;
+      font-weight: 700;
+    }
+
+    .ng-invalid.ng-touched {
+      border: 2px solid rgb(133, 0, 0);
+    }
+
+    .form-control {
+      font-size: 1.3rem;
+      border-radius: 6px;
+      color: white;
+      border: none;
+      padding: 12px;
+      background-color: var.$black-two;
+
+      &::placeholder {
+        font-size: 1.2rem;
+        padding: 5px;
+        color: rgba(255, 255, 255, 0.459);
+
+        font-style: italic;
+      }
+
+      &:focus {
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .form-error {
+    color: var.$dark-red;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+
+  button {
+    font-size: 1.4rem;
+    padding: 10px;
+    padding-bottom: 13px;
+    width: 100%;
+    background-color: var.$dark-red;
+    color: var.$black;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    font-weight: 500;
+    margin: 20px 0px;
+
+    &:hover {
+      background-color: var.$light-red;
+    }
+
+    &:disabled {
+      background-color: rgb(117, 117, 117);
+    }
+  }
+}
+
+.ngx-toastr {
+  text-align: center;
+  font-size: 16px;
+}
+
+.toast-success {
+  background-color: #186f47 !important;
+  box-shadow: var.$box-shadow !important;
+}
+
+.toast-error {
+  background-color: var.$dark-red !important;
+  box-shadow: var.$box-shadow !important;
+}
+
+@media (min-height: 1000px) {
+  main {
+    min-height: 1200px;
+  }
 }
